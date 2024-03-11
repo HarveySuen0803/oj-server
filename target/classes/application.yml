@@ -1,0 +1,46 @@
+spring:
+    application:
+        name: oj-server
+    profiles:
+        active: dev
+    mvc:
+        path match:
+            matching-strategy: ant_path_matcher
+    session:
+        timeout: 2592000
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/oj
+        username: root
+        password: 111
+    servlet:
+        multipart:
+            max-file-size: 10MB
+
+server:
+    address: 0.0.0.0
+    port: 10100
+    servlet:
+        context-path: /api
+        session:
+            cookie:
+                max-age: 2592000
+
+mybatis-plus:
+    configuration:
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+springdoc:
+    swagger-ui:
+        path: /swagger-ui.html
+        tags-sorter: alpha
+        operations-sorter: alpha
+    api-docs:
+        path: /v3/api-docs
+    group-configs:
+        -   group: 'default'
+            paths-to-match: '/**'
+            packages-to-scan: com.harvey.oj.controller
+
+knife4j:
+    enable: true
