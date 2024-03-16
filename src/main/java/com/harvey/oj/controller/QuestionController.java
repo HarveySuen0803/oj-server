@@ -1,11 +1,10 @@
 package com.harvey.oj.controller;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONUtil;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.harvey.oj.common.Result;
 import com.harvey.oj.common.ErrorCode;
+import com.harvey.oj.common.Result;
 import com.harvey.oj.common.ResultUtil;
 import com.harvey.oj.exception.BusinessException;
 import com.harvey.oj.exception.ThrowUtils;
@@ -15,15 +14,13 @@ import com.harvey.oj.model.dto.question.QuestionAddDto;
 import com.harvey.oj.model.dto.question.QuestionEditDto;
 import com.harvey.oj.model.dto.question.QuestionPageDto;
 import com.harvey.oj.model.dto.question.QuestionUpdDto;
-import com.harvey.oj.model.vo.QuestionVo;
+import com.harvey.oj.model.vo.question.QuestionVo;
 import com.harvey.oj.service.QuestionService;
 import com.harvey.oj.service.UserService;
 import jakarta.annotation.Resource;
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
 import java.util.List;
 
 @Slf4j
@@ -53,7 +50,7 @@ public class QuestionController {
         questionService.save(question);
         return ResultUtil.success(question.getId());
     }
-    
+
     @GetMapping("/{id}")
     public Result<Question> getQuestionById(@PathVariable long id) {
         Question question = questionService.getById(id);
@@ -77,7 +74,7 @@ public class QuestionController {
         boolean result = questionService.removeById(id);
         return ResultUtil.success(result);
     }
-    
+
     @PutMapping
     public Result<Boolean> updQuestion(@RequestBody QuestionUpdDto questionUpdDto) {
         Question question = BeanUtil.copyProperties(questionUpdDto, Question.class);

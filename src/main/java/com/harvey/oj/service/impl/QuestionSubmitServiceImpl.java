@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.harvey.oj.common.ErrorCode;
 import com.harvey.oj.constant.CommonConstant;
-import com.harvey.oj.constant.QuestionConstant;
+import com.harvey.oj.constant.QuestionSubmitConstant;
 import com.harvey.oj.exception.BusinessException;
 import com.harvey.oj.mapper.QuestionSubmitMapper;
 import com.harvey.oj.model.domain.Question;
@@ -16,7 +16,7 @@ import com.harvey.oj.model.domain.QuestionSubmit;
 import com.harvey.oj.model.domain.User;
 import com.harvey.oj.model.dto.questionsubmit.QuestionSubmitAddDto;
 import com.harvey.oj.model.dto.questionsubmit.QuestionSubmitQueryDto;
-import com.harvey.oj.model.vo.QuestionSubmitVo;
+import com.harvey.oj.model.vo.questionsubmit.QuestionSubmitVo;
 import com.harvey.oj.service.JudgeService;
 import com.harvey.oj.service.QuestionService;
 import com.harvey.oj.service.QuestionSubmitService;
@@ -58,7 +58,7 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
         questionSubmit.setQuestionId(questionId);
         questionSubmit.setCode(questionSubmitAddDto.getCode());
         questionSubmit.setLanguage(language);
-        questionSubmit.setStatus(QuestionConstant.WAITING);
+        questionSubmit.setStatus(QuestionSubmitConstant.WAITING);
         questionSubmit.setJudgeInfo("{}");
         boolean result = this.save(questionSubmit);
         if (!result) {

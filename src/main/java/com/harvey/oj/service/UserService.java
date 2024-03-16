@@ -4,8 +4,8 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.harvey.oj.model.domain.User;
 import com.harvey.oj.model.dto.user.UserQueryDto;
-import com.harvey.oj.model.vo.UserSigninVo;
-import com.harvey.oj.model.vo.UserVo;
+import com.harvey.oj.model.vo.user.UserSigninVo;
+import com.harvey.oj.model.vo.user.UserVo;
 
 import java.util.List;
 

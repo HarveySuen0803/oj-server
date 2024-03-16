@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.harvey.oj.model.domain.Question;
 import com.harvey.oj.model.dto.question.QuestionPageDto;
-import com.harvey.oj.model.vo.QuestionVo;
+import com.harvey.oj.model.vo.question.QuestionVo;
 
 public interface QuestionService extends IService<Question> {
     void validQuestion(Question question, boolean b);

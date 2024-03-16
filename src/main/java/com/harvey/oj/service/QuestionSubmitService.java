@@ -7,7 +7,7 @@ import com.harvey.oj.model.domain.QuestionSubmit;
 import com.harvey.oj.model.domain.User;
 import com.harvey.oj.model.dto.questionsubmit.QuestionSubmitAddDto;
 import com.harvey.oj.model.dto.questionsubmit.QuestionSubmitQueryDto;
-import com.harvey.oj.model.vo.QuestionSubmitVo;
+import com.harvey.oj.model.vo.questionsubmit.QuestionSubmitVo;
 
 public interface QuestionSubmitService extends IService<QuestionSubmit> {
     long addQuestionSubmit(QuestionSubmitAddDto questionSubmitAddDto, User loginUser);

@@ -1,8 +1,10 @@
-package com.harvey.oj.model.vo;
+package com.harvey.oj.model.vo.questionsubmit;
 
 import cn.hutool.json.JSONUtil;
 import com.harvey.oj.model.domain.JudgeInfo;
 import com.harvey.oj.model.domain.QuestionSubmit;
+import com.harvey.oj.model.vo.question.QuestionVo;
+import com.harvey.oj.model.vo.user.UserVo;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
 

@@ -1,11 +1,11 @@
-package com.harvey.oj.model.vo;
+package com.harvey.oj.model.vo.question;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.json.JSONUtil;
 import com.harvey.oj.model.domain.JudgeConfig;
 import com.harvey.oj.model.domain.Question;
+import com.harvey.oj.model.vo.user.UserVo;
 import lombok.Data;
-import org.springframework.beans.BeanUtils;
 
 import java.io.Serial;
 import java.io.Serializable;
