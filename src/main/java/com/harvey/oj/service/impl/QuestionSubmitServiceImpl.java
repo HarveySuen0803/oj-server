@@ -40,7 +40,7 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
     private QuestionService questionService;
     
     @Override
-    public long addQuestionSubmit(QuestionSubmitAddDto questionSubmitAddDto, User loginUser) {
+    public long addQuestionSubmit(QuestionSubmitAddDto questionSubmitAddDto, User user) {
         // Check the programming language
         String language = questionSubmitAddDto.getLanguage();
         if (language == null) {
@@ -54,7 +54,7 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
         }
         // Save the submission
         QuestionSubmit questionSubmit = new QuestionSubmit();
-        questionSubmit.setUserId(loginUser.getId());
+        questionSubmit.setUserId(user.getId());
         questionSubmit.setQuestionId(questionId);
         questionSubmit.setCode(questionSubmitAddDto.getCode());
         questionSubmit.setLanguage(language);
