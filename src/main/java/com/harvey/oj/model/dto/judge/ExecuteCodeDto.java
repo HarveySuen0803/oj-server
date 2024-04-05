@@ -1,5 +1,6 @@
 package com.harvey.oj.model.dto.judge;
 
+import com.harvey.oj.model.domain.JudgeConfig;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,4 +16,6 @@ public class ExecuteCodeDto {
     private String code;
     
     private String language;
+    
+    private JudgeConfig judgeConfig;
 }

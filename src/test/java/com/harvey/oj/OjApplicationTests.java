@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class MainApplicationTests {
+public class OjApplicationTests {
     @Resource
     private DefaultCodeSandbox defaultCodeSandbox;
     

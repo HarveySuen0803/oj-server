@@ -10,8 +10,6 @@ import com.harvey.oj.model.dto.questionsubmit.QuestionSubmitQueryDto;
 import com.harvey.oj.model.vo.questionsubmit.QuestionSubmitVo;
 
 public interface QuestionSubmitService extends IService<QuestionSubmit> {
-    long addQuestionSubmit(QuestionSubmitAddDto questionSubmitAddDto, User loginUser);
-    
     QueryWrapper<QuestionSubmit> getQueryWrapper(QuestionSubmitQueryDto questionSubmitQueryRequest);
     
     QuestionSubmitVo getQuestionSubmitVo(QuestionSubmit questionSubmit, User loginUser);

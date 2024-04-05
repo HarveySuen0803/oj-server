@@ -27,51 +27,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper, QuestionSubmit> implements QuestionSubmitService {
     @Resource
     private UserService userService;
-    
-    @Resource
-    private JudgeService judgeService;
-    
-    @Resource
-    private QuestionService questionService;
-    
-    @Override
-    public long addQuestionSubmit(QuestionSubmitAddDto questionSubmitAddDto, User user) {
-        // Check the programming language
-        String language = questionSubmitAddDto.getLanguage();
-        if (language == null) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR, "Programming Language Error");
-        }
-        // Check the question
-        long questionId = questionSubmitAddDto.getQuestionId();
-        Question question = questionService.getById(questionId);
-        if (question == null) {
-            throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
-        }
-        // Save the submission
-        QuestionSubmit questionSubmit = new QuestionSubmit();
-        questionSubmit.setUserId(user.getId());
-        questionSubmit.setQuestionId(questionId);
-        questionSubmit.setCode(questionSubmitAddDto.getCode());
-        questionSubmit.setLanguage(language);
-        questionSubmit.setStatus(QuestionSubmitConstant.WAITING);
-        questionSubmit.setJudgeInfo("{}");
-        boolean result = this.save(questionSubmit);
-        if (!result) {
-            throw new BusinessException(ErrorCode.SYSTEM_ERROR, "Data insertion failed");
-        }
-        // Start the judge
-        Long questionSubmitId = questionSubmit.getId();
-        CompletableFuture.runAsync(() -> {
-            judgeService.doJudge(questionSubmitId);
-        });
-        
-        return questionSubmitId;
-    }
     
     @Override
     public QueryWrapper<QuestionSubmit> getQueryWrapper(QuestionSubmitQueryDto questionSubmitQueryRequest) {

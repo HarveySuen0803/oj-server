@@ -29,16 +29,11 @@ import java.util.List;
 public class QuestionController {
     @Resource
     private QuestionService questionService;
-    
     @Resource
     private UserService userService;
     
     @PostMapping
     public Result<Long> addQuestion(@RequestBody QuestionAddDto questionAddDto) {
-        System.out.println("-----------------------------------------------------");
-        System.out.println(questionAddDto);
-        System.out.println("-----------------------------------------------------");
-        
         Question question = BeanUtil.copyProperties(questionAddDto, Question.class);
         question.setTags(JSONUtil.toJsonStr(questionAddDto.getTags()));
         question.setJudgeCase(JSONUtil.toJsonStr(questionAddDto.getJudgeCase()));
@@ -130,7 +125,7 @@ public class QuestionController {
             QuestionVo questionVo = new QuestionVo();
             questionVo.setId(question.getId());
             questionVo.setTitle(question.getTitle());
-            questionVo.setTags(JSONUtil.parseArray(question.getTags()).toList(String.class));
+            questionVo.setTags(JSONUtil.toList(question.getTags(), String.class));
             questionVo.setSubmitNum(question.getSubmitNum());
             questionVo.setAcceptedNum(question.getAcceptedNum());
             return questionVo;

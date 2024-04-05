@@ -92,7 +92,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return this.getUserSigninVo(user);
     }
     
-    // Todo: Rewrite the login function with token (3)
+    // Todo: Rewrite the login function with token
     @Override
     public User getUserSigninInfo() {
         // HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
